@@ -1,8 +1,3 @@
-:root {
-  --primary-color: #003f09;
-  --secondary-color: #2d5412;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,12 +11,13 @@ body {
 }
 
 #boxbar ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   list-style: none;
 }
 
 #boxbar ul li {
   color: #fff;
-  display: inline-block;
   padding: 1rem;
   position: relative;
   margin: 120px 0;
@@ -35,7 +31,7 @@ body {
 
 #boxbar ul li:hover {
   cursor: pointer;
-  background: var(--primary-color);
+  background: #003f09;
   color: #fff;
 }
 
@@ -45,21 +41,21 @@ body {
 
 #boxbar ul li ul {
   display: none;
-  max-height: 0;
-  transition: max-height 2s;
 }
-/* #boxbar ul li ul li {
-
-} */
 
 /* Nested dropdown show */
 #boxbar ul li:hover ul {
   display: block;
   position: absolute;
   left: -100px;
-  top: -258px;
+  top: -458px;
   width: 200%;
   margin-top: 1rem;
+  transition: all 0.5s;
+}
+
+#boxbar ul li:hover ul:hover {
+  top: -258px;
 }
 #boxbar ul .boxbar-col-left:hover ul {
   left: 0;
@@ -72,7 +68,7 @@ body {
   z-index: 10;
   display: block;
   background: #e9e9e8;
-  max-height: 302px;
+  height: 302px;
 }
 
 #boxbar ul li:hover ul li a {
@@ -111,17 +107,25 @@ body {
   font-size: 4rem;
 }
 
-@media (max-width: 600px) {
-  #boxbar ul li {
-    display: block;
+@media (max-width: 980px) {
+  #boxbar {
+    height: 600px;
   }
-
-  #boxbar ul li:hover ul {
-    width: 100%;
-    position: relative;
+  #boxbar ul {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
-.boxbar-col {
-  width: 24%;
+@media (max-width: 500px) {
+  #boxbar {
+    height: 1200px;
+  }
+  #boxbar ul {
+    grid-template-columns: 1fr;
+  }
+  #boxbar ul li:hover ul {
+    width: 100%;
+  }
+  #boxbar ul .boxbar-col-right:hover ul {
+    left: 0;
+  }
 }
