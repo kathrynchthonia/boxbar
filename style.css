@@ -24,19 +24,14 @@ body {
   display: inline-block;
   padding: 1rem;
   position: relative;
-
   margin: 120px 0;
 }
-
 #boxbar ul li a {
   color: #333;
   text-decoration: none;
 }
 
 /* Hide nested ul by default */
-#boxbar ul li ul {
-  display: none;
-}
 
 #boxbar ul li:hover {
   cursor: pointer;
@@ -48,6 +43,15 @@ body {
   color: #fff;
 }
 
+#boxbar ul li ul {
+  display: none;
+  max-height: 0;
+  transition: max-height 2s;
+}
+/* #boxbar ul li ul li {
+
+} */
+
 /* Nested dropdown show */
 #boxbar ul li:hover ul {
   display: block;
@@ -55,7 +59,6 @@ body {
   left: -100px;
   top: -258px;
   width: 200%;
-
   margin-top: 1rem;
 }
 #boxbar ul .boxbar-col-left:hover ul {
@@ -66,9 +69,10 @@ body {
 }
 
 #boxbar ul li:hover ul li {
+  z-index: 10;
   display: block;
   background: #e9e9e8;
-  height: 302px;
+  max-height: 302px;
 }
 
 #boxbar ul li:hover ul li a {
